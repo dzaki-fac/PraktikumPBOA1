@@ -40,7 +40,7 @@ public class Titik {
     //menggeser nilai absis dan ordinat titik masing-masing sejauh x dan y
     void geser(double x, double y){
         absis = absis + x;
-        ordinat = ordinat + x;
+        ordinat = ordinat + y;
     }
 
     //mencetak koordinat titik
