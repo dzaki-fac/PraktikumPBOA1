@@ -1,6 +1,6 @@
 /* Nama File   : MTitik.java
  * Deskripsi   : berisi atribut dan method dalam class Titik
- * Pembuat     : Dzaki Fathul 'Alim Cahyo   
+ * Pembuat     : Dzaki Fathul 'Alim Cahyo
  * Tanggal     : 19 Februari 2026
  */
 
