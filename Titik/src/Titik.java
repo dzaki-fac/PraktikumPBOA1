@@ -17,6 +17,11 @@ public class Titik {
         ordinat = 0;
     }
 
+    Titik(double x, double y){
+        absis = x;
+        ordinat = y;
+    }
+
     //mengembalikan nilai absis
     double getAbsis(){
         return absis;
