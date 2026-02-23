@@ -32,5 +32,11 @@ public class MTitik {
 
         Titik T2 = new Titik(6,7);
         T2.printTitik();
+
+        System.out.println(Titik.getCounterTitik());
+        System.out.println(T2.getKuadran());
+
+        T2.RefleksiX();
+        T2.printTitik();
     }
 }
