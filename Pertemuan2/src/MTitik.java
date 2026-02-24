@@ -12,31 +12,52 @@ java -cp bin MTitik
 
 public class MTitik {
     public static void main(String[] args) {
-        Titik T1 = new Titik(); 
-       /*  Membuat objek titik T1 (0,0) */
 
-        T1.setAbsis(3); 
-        /* mengubah absis T1 dengan nilai 3 */
+        System.out.println("Membuat Titik T1");
+        Titik T1 = new Titik();
+        T1.printTitik();
 
-        T1.setOrdinat(4); 
-        /* mengubah ordinat T1 dengan nilai 4 */
+        System.out.println("Set Absis = 3, Ordinat = 4");
+        T1.setAbsis(3);
+        T1.setOrdinat(4);
+        T1.printTitik();
 
-        T1.printTitik(); 
-        /* mencetak koordinat T1 ke layar */
+        System.out.println("Geser T1 sejauh (3,4)");
+        T1.geser(3,4);
+        T1.printTitik();
 
-        T1.geser(3,4); 
-        /* menggeser T1 sejauh (3,4) */
+        System.out.println();
 
-        T1.printTitik(); 
-        /* menampilkan koordinat T1 setelah digeser */
-
+        System.out.println("Membuat Titik T2 (6,7)");
         Titik T2 = new Titik(6,7);
         T2.printTitik();
 
+        System.out.println("Counter Titik:");
         System.out.println(Titik.getCounterTitik());
+
+        System.out.println("Kuadran T2:");
         System.out.println(T2.getKuadran());
 
+        System.out.println("Jarak T2 ke pusat:");
+        System.out.println(T2.getJarakPusat());
+
+        System.out.println();
+
+        System.out.println("Refleksi X T2:");
         T2.RefleksiX();
         T2.printTitik();
+
+        System.out.println("Refleksi Y T2:");
+        T2.RefleksiY();
+        T2.printTitik();
+
+        System.out.println();
+
+        System.out.println("Titik Refleksi Baru");
+        Titik T3 = T2.getRefleksiX();
+        T3.printTitik();
+
+        System.out.println("Jarak T1 ke T2:");
+        System.out.println(T1.getJarak(T2));
     }
 }
