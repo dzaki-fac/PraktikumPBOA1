@@ -18,9 +18,13 @@ public class CreditCard extends Payment {
 
     @Override
     public boolean processPayment() {
+        assert amount > 0 : "Amount tidak valid";
+
+        if (cardNumber == null || cardNumber.length() < 8) {
+            throw new IllegalStateException("Nomor kartu tidak valid");
+        }
+
         System.out.println("Processing Credit Card payment...");
-        System.out.println("Card Number: " + cardNumber);
-        System.out.println("Amount: " + amount);
-        return true; // simulasi sukses
+        return true;
     }
 }

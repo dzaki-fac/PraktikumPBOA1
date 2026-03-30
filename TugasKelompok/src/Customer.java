@@ -1,3 +1,6 @@
+import java.text.NumberFormat;
+import java.util.Locale;
+
 public class Customer extends User {
     private Cart cart;
 
@@ -22,11 +25,18 @@ public class Customer extends User {
 
     public void checkout() {
         Order order = new Order(this);
-        order.calculateTotal();
-        System.out.println("Checkout successful. Order ID: " + order.getId());
+        double total = order.calculateTotal();
+
+        NumberFormat nf = NumberFormat.getInstance(new Locale("id", "ID"));
+
+        System.out.println("checkout berhasil");
+        System.out.println("order id: " + order.getId());
+        System.out.println("total: Rp" + nf.format(total));
+
+        cart.getItems().clear();
     }
 
     public void viewProduct(Product p) {
-        System.out.println("Viewing product: " + p.getName());
+        System.out.println("Melihat produk: " + p.getName());
     }
 }

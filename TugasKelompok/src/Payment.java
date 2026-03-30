@@ -2,6 +2,9 @@ public abstract class Payment {
     protected double amount;
 
     public Payment(double amount) {
+        if (amount <= 0) {
+            throw new IllegalArgumentException("Amount harus lebih dari 0");
+        }
         this.amount = amount;
     }
 

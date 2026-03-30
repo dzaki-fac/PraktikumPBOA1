@@ -11,19 +11,23 @@ public class Order {
     private String status;
 
     public Order(Customer customer) {
+        assert customer != null : "Customer tidak boleh null";
+
+        if (customer.getCart().getItems().isEmpty()) {
+            throw new IllegalStateException("Cart kosong, tidak bisa checkout");
+        }
+
         this.id = UUID.randomUUID().toString();
         this.customer = customer;
         this.date = new Date();
         this.details = new ArrayList<>();
         this.status = "NEW";
 
-        // ambil dari cart
         for (CartItem item : customer.getCart().getItems()) {
             details.add(new OrderDetail(
-                item.getProduct(),
-                item.getQuantity(),
-                item.getProduct().getPrice()
-            ));
+                    item.getProduct(),
+                    item.getQuantity(),
+                    item.getProduct().getPrice()));
         }
     }
 

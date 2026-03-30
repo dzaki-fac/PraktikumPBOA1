@@ -3,6 +3,12 @@ public class CartItem {
     private int quantity;
 
     public CartItem(Product product, int quantity) {
+        assert product != null : "Product tidak boleh null";
+
+        if (quantity <= 0) {
+            throw new IllegalArgumentException("Quantity harus > 0");
+        }
+
         this.product = product;
         this.quantity = quantity;
     }

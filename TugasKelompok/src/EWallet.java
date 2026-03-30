@@ -18,9 +18,13 @@ public class EWallet extends Payment {
 
     @Override
     public boolean processPayment() {
+        assert amount > 0 : "Amount tidak valid";
+
+        if (walletId == null || walletId.isEmpty()) {
+            throw new IllegalStateException("Wallet ID tidak valid");
+        }
+
         System.out.println("Processing E-Wallet payment...");
-        System.out.println("Wallet ID: " + walletId);
-        System.out.println("Amount: " + amount);
-        return true; // simulasi sukses
+        return true;
     }
 }

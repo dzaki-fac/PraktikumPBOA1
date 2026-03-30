@@ -44,10 +44,16 @@ public class Product {
     }
 
     public void setPrice(double price) {
+        if (price < 0) {
+            throw new IllegalArgumentException("Harga tidak boleh negatif");
+        }
         this.price = price;
     }
 
     public void setStock(int stock) {
+        if (stock < 0) {
+            throw new IllegalArgumentException("Stok tidak boleh negatif");
+        }
         this.stock = stock;
     }
 
@@ -56,6 +62,11 @@ public class Product {
     }
 
     public void updateStock(int qty) {
-        this.stock -= qty;
+        assert qty >= 0 : "Qty harus positif";
+
+        if (qty > stock) {
+            throw new IllegalStateException("Stok tidak cukup");
+        }
+        stock -= qty;
     }
 }

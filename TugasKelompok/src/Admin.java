@@ -4,19 +4,25 @@ public class Admin extends User {
         super(email, id, name, password);
     }
 
-    public void addProduct(Product p) {
-        System.out.println("Product added: " + p.getName());
+    public void addProduct(Product p, Category c) {
+        c.addProduct(p);
+        System.out.println("Admin " + name + " menambahkan produk: " + p.getName());
     }
 
-    public void deleteProduct(Product p) {
-        System.out.println("Product deleted: " + p.getName());
+    public void deleteProduct(Product p, Category c) {
+        c.getProducts().remove(p);
+        System.out.println("Admin " + name + " menghapus produk: " + p.getName());
     }
 
-    public void manageOrder(Order o) {
-        System.out.println("Managing order ID: " + o.getId());
+    public void updateProduct(Product p, String newName, double newPrice, int newStock) {
+        p.setName(newName);
+        p.setPrice(newPrice);
+        p.setStock(newStock);
+        System.out.println("Admin " + name + " mengupdate produk: " + p.getName());
     }
 
-    public void updateProduct(Product p) {
-        System.out.println("Product updated: " + p.getName());
+    public void manageOrder(Order o, String status) {
+        o.setStatus(status);
+        System.out.println("Admin " + name + " mengubah status order " + o.getId() + " menjadi " + status);
     }
 }

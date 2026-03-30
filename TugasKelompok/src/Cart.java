@@ -33,6 +33,18 @@ public class Cart {
     }
 
     public void addItem(Product p, int qty) {
+        assert p != null : "Product tidak boleh null";
+
+        if (qty <= 0) {
+            throw new IllegalArgumentException("Quantity harus > 0");
+        }
+
+        for (CartItem item : items) {
+            if (item.getProduct().equals(p)) {
+                item.setQuantity(item.getQuantity() + qty);
+                return;
+            }
+        }
         items.add(new CartItem(p, qty));
     }
 
