@@ -4,15 +4,6 @@ public class Admin extends User {
         super(email, id, name, password);
     }
 
-    // Getter & Setter (optional, karena sudah dari User, tapi tetap bisa override kalau mau)
-    public String getEmail() {
-        return super.getEmail();
-    }
-
-    public void setEmail(String email) {
-        super.setEmail(email);
-    }
-
     public void addProduct(Product p) {
         System.out.println("Product added: " + p.getName());
     }

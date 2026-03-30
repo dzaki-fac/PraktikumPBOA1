@@ -11,40 +11,6 @@ public abstract class User {
         this.password = password;
     }
 
-    // Getter
-    public String getEmail() {
-        return email;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    // Setter
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
     public boolean login(String email, String password) {
         return this.email.equals(email) && this.password.equals(password);
     }
