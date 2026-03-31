@@ -23,6 +23,10 @@ public class Customer extends User {
         cart.addItem(p, qty);
     }
 
+    public void addToCart(Product p) {
+        cart.addItem(p, 1);
+    }
+
     public void checkout() {
         Order order = new Order(this);
         double total = order.calculateTotal();
