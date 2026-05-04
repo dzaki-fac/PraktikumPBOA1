@@ -7,7 +7,7 @@
 /* 
 posisi folder di ./Titik
 javac -d bin src\*.java
-java -cp bin MTitik 
+java -cp bin MTitik
 */
 
 public class MTitik {
