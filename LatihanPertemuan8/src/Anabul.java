@@ -1,3 +1,7 @@
+/* Pembuat     : Dzaki Fathul 'Alim Cahyo/24060124130103
+ * Tanggal     : 27 April 2026
+ */
+
 class Anabul {
     String nama;
 

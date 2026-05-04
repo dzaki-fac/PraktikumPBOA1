@@ -1,3 +1,8 @@
+/* Nama File   : Main.java
+ * Pembuat     : Dzaki Fathul 'Alim Cahyo/24060124130103
+ * Tanggal     : 27 April 2026
+ */
+
 public class Main {
     public static void main(String[] args) {
 
@@ -46,3 +51,9 @@ public class Main {
         System.out.println(data.getSize());
     }
 }
+
+//Renungan
+//Konsep generik memungkinkan satu kelas atau metode digunakan untuk berbagai 
+// tipe data tanpa perlu menulis ulang kode yang sama. Dengan parameter tipe seperti <T>, 
+// tipe data bisa ditentukan saat digunakan, sehingga lebih fleksibel dan tetap aman 
+// karena dicek saat compile-time.
