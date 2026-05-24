@@ -135,4 +135,19 @@ public class ProductRepository implements GenericRepository<Product, String> {
             System.out.println(e.getMessage());
         }
     }
+    
+    @Override
+    public Product getById(String id) {
+
+        List<Product> list = getAll();
+
+        for (Product p : list) {
+
+            if (p.getId().equals(id)) {
+                return p;
+            }
+        }
+
+        return null;
+    }
 }
