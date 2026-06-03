@@ -10,6 +10,7 @@ import javax.swing.table.DefaultTableModel;
 
 import product.*;
 import repository.*;
+import user.Admin;
 /**
  *
  * @author lenovo
@@ -21,10 +22,17 @@ public class AdminPanel extends javax.swing.JFrame {
     NumberFormat nf = NumberFormat.getInstance(new Locale("id", "ID"));
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(AdminPanel.class.getName());
-    private ProductRepository repo = new ProductRepository();
+    
+    private Admin admin = new Admin(
+        "admin@mail.com",
+        "A001",
+        "Admin",
+        "123"
+    );
+    
     private void loadTable() {
 
-        List<Product> list = repo.getAll();
+        List<Product> list = admin.getAllProducts();
 
         DefaultTableModel model = new DefaultTableModel(
             new Object[][] {},
@@ -198,12 +206,11 @@ public class AdminPanel extends javax.swing.JFrame {
                 txtId.getText(),
                 txtName.getText(),
                 Double.parseDouble(txtPrice.getText()),
-                Integer.parseInt(txtStock.getText()),
-                null
+                Integer.parseInt(txtStock.getText())
             );
 
-            repo.save(p);
-
+            admin.addProduct(p);
+            
             loadTable();
             clearForm();
 
@@ -218,7 +225,7 @@ public class AdminPanel extends javax.swing.JFrame {
 
         String id = txtId.getText();
 
-        Product oldProduct = repo.getById(id);
+        Product oldProduct = admin.getProductById(id);
 
         if (oldProduct == null) {
             System.out.println("Product tidak ditemukan");
@@ -244,11 +251,10 @@ public class AdminPanel extends javax.swing.JFrame {
             id,
             name,
             price,
-            stock,
-            null
+            stock
         );
 
-        repo.update(updatedProduct);
+        admin.updateProduct(id, name, price, stock);
 
         loadTable();
         clearForm();
@@ -263,7 +269,7 @@ public class AdminPanel extends javax.swing.JFrame {
         try {
             String id = txtId.getText();
 
-            repo.delete(id);
+            admin.deleteProduct(id);
 
             loadTable();
             clearForm();

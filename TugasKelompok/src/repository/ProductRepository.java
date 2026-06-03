@@ -51,8 +51,7 @@ public class ProductRepository implements GenericRepository<Product, String> {
                     rs.getString("id"),
                     rs.getString("name"),
                     rs.getDouble("price"),
-                    rs.getInt("stock"),
-                    null
+                    rs.getInt("stock")
                 ));
             }
 
@@ -82,8 +81,7 @@ public class ProductRepository implements GenericRepository<Product, String> {
                     rs.getString("id"),
                     rs.getString("name"),
                     rs.getDouble("price"),
-                    rs.getInt("stock"),
-                    null
+                    rs.getInt("stock")
                 );
             }
 

@@ -11,14 +11,12 @@ public class Product {
     private String name;
     private double price;
     private int stock;
-    private Category category;
 
-    public Product(String id, String name, double price, int stock, Category category) {
+    public Product(String id, String name, double price, int stock) {
         this.id = id;
         this.name = name;
         this.price = price;
         this.stock = stock;
-        this.category = category;
     }
 
     // Getter
@@ -36,10 +34,6 @@ public class Product {
 
     public int getStock() {
         return stock;
-    }
-
-    public Category getCategory() {
-        return category;
     }
 
     // Setter
@@ -63,10 +57,6 @@ public class Product {
             throw new IllegalArgumentException("Stok tidak boleh negatif");
         }
         this.stock = stock;
-    }
-
-    public void setCategory(Category category) {
-        this.category = category;
     }
 
     public void updateStock(int qty) {

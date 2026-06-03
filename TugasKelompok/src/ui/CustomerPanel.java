@@ -8,6 +8,7 @@ import java.util.List;
 import javax.swing.table.DefaultTableModel;
 import java.text.NumberFormat;
 import java.util.Locale;
+import javax.swing.JOptionPane;
 
 import product.*;
 import repository.*;
@@ -77,6 +78,24 @@ public class CustomerPanel extends javax.swing.JFrame {
             "Total: Rp " +
             nf.format(customer.getCart().getTotal())
         );
+    }
+    
+    private Payment createPayment(double total) {
+        String method = (String) jComboBox2.getSelectedItem();
+
+        if ("Credit Card".equals(method)) {
+            String cardNumber = JOptionPane.showInputDialog(
+                this,
+                "Masukkan nomor kartu kredit:"
+            );
+            return new CreditCard(total, cardNumber);
+        }
+
+        String walletId = JOptionPane.showInputDialog(
+            this,
+            "Masukkan Wallet ID E-Wallet:"
+        );
+        return new EWallet(total, walletId);
     }
     
     private void clearForm() {
@@ -274,17 +293,26 @@ public class CustomerPanel extends javax.swing.JFrame {
     private void btnCheckoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCheckoutActionPerformed
         // TODO add your handling code here:
         try {
-            Order order = new Order(customer);
-            double total = order.calculateTotal();
+            double total = customer.getCart().getTotal();
 
-            Payment payment = new EWallet(total, "OVO123");
+            Payment payment = createPayment(total);
             payment.processPayment();
 
             customer.checkout(repo);
 
             loadCart();
+            loadProducts();
+
+            JOptionPane.showMessageDialog(
+                this,
+                "Checkout berhasil dengan metode " + jComboBox2.getSelectedItem()
+            );
 
         } catch (Exception e) {
+            JOptionPane.showMessageDialog(
+                this,
+                "Checkout gagal: " + e.getMessage()
+            );
             System.out.println("Checkout gagal: " + e.getMessage());
         }
     }//GEN-LAST:event_btnCheckoutActionPerformed
